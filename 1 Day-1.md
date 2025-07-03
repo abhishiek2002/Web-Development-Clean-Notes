@@ -2,10 +2,6 @@ So NICE to SEE you here ....
 
 Web Development is going to be a lot of fun together.
 
-We have live classes everyday , feel free to join whenever you get stuck xD!!!
-
-For class timings check dashboard.
-
 
 
 What is HTML CSS and JS. Watch this video.
@@ -28,12 +24,3 @@ FINISH All the assignments from here Uptill images. Dont cheat. Try solving by y
 
 https://www.w3schools.com/html/exercise.asp?filename=exercise_html_attributes1
 
-
-
-Only once you have complete all the above task , please answer the following MCQs.
-
-
-
-If you face any issues/problems feel free to reach out to the mentor in the live class which happens everyday.
-
-Timing is on the dashboard
