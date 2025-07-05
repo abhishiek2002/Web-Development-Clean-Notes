@@ -1,7 +1,7 @@
 What You Will Learn ? 
 
 You will focus on the following:
-```
+```md
 Pseudo-classes – Special states of elements, like hover, focus, or first-child.
 video link : https://www.loom.com/share/a8d9e7a7957942aeb280584276b544d3?sid=84321f18-e0f2-430c-9996-1f931a4ace9f
 
