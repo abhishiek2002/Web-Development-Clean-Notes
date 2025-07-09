@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mainBody">
+        <h1>
+            Notebook
+        </h1>
+        <div id="searchDiv">
+            <label for="search">
+                Search :
+            </label>
+            <input type="text" name="search" id="search" >
+        </div>
+        <div>
+            <p >Total Notes : <span id="totalCount">10</span></p>
+            <p >Showing : <span id="showCount">10</span></p>
+        </div>
+    </div>
+
+    <div id="typerBody">
+        <form >
+            <div id="titleDiv">
+                <label for="title">Title : </label>
+                <input type="text" id="title" name="title">
+            </div>
+            
+            <div id="noteTextDiv">
+                <label for="noteText">Text :</label>
+                <textarea name="noteText" id="noteText"></textarea>
+            </div>
+
+            <button type="submit">ADD</button>
+        </form>
+    </div>
+
+
+    <div id="notesListDiv">
+        <!-- <div class="note">
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit alias quis commodi obcaecati suscipit eligendi veritatis exercitationem quod explicabo. Quam odit fuga atque deleniti illum dignissimos amet tempora vel?</p>
+            <button type="button" class="delete-btn">DELETE</button>
+        </div>
+        <div class="note">
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit alias quis commodi obcaecati suscipit eligendi veritatis exercitationem quod explicabo. Quam odit fuga atque deleniti illum dignissimos amet tempora vel?</p>
+            <button type="button" class="delete-btn">DELETE</button>
+        </div> -->
+    </div>
+
+    <script type="module" src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+</body>
+</html>
