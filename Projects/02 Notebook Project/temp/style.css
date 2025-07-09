@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3em;
+}
+
+.mainBody input {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid blueviolet;
+  padding: 5px;
+}
+
+#typerBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+  /* outline: 1px solid blue; */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* outline: 1px solid blue; */
+  width: 580px;
+  gap: 10px;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+form div {
+  /* display: flex; */
+  width: 100%;
+}
+
+label {
+  font-weight: 550;
+  font-size: large;
+}
+
+form label {
+  margin-bottom: 10px;
+}
+
+form input {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid blueviolet;
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+form textarea {
+  margin-top: 5px;
+  padding: 5px;
+  min-height: 100px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid blueviolet;
+  resize: vertical;
+}
+
+button {
+  width: 100px;
+  margin: 0 auto;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid blueviolet;
+  background-color: blueviolet;
+  color: white;
+}
+
+button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+#notesListDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    /* outline: 1px solid blueviolet; */
+    /* box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.3); */
+
+}
+
+.note{
+    display: flex;
+    flex-direction: column;
+    /* width: 80%; */
+    /* outline: 1px solid blueviolet; */
+    gap: 5px;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.3);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.note button{
+    width: 100px;
+  margin: 0;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid blueviolet;
+  background-color: blueviolet;
+  color: white;
+  align-self: flex-end;
+  
+}
