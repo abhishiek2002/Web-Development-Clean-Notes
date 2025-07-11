@@ -8,6 +8,7 @@ router
     res.send("Here is the list of books.");
   })
   .post((req, res) => {
+    console.log(req.body);
     res.send("Book has been added!");
   });
 

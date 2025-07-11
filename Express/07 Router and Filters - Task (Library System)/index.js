@@ -4,6 +4,8 @@ import bookRouter from "./Routers/Books.js"
 const app = express();
 let port = 4000;
 
+app.use(express.json());
+
 app.use((req, res, next) => {
   const method = req.method;
   const url = req.url;
