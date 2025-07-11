@@ -8,9 +8,11 @@
 // GET /products → "Fetching all products"
 // GET /products/1 → "Fetching product with ID: 1"
 // POST /products → "Adding a new product"
+import { log } from "console";
 import path from "path";
 
-const __dirname = "D:\\Web-Development-Clean-Notes\\Express\\10 Serving HTML Page Assignment\\Service";
+const __dirname =
+  "D:\\Web-Development-Clean-Notes\\Express\\10 Serving HTML Page Assignment\\Service";
 
 const getAllProducts = (res) => {
   res.sendFile(path.join(__dirname, "..", "View", "product.html"));
@@ -21,8 +23,10 @@ const getSingleProductById = (params, res) => {
   res.send(`Fetching product with ID: ${id}`);
 };
 
-const addOneProduct = (res) => {
-  res.send("Adding a new product");
+const addOneProduct = (req, res) => {
+  const data = req.body;
+  console.log(data);
+  res.json({ value: data.product });
 };
 
 export { getAllProducts, getSingleProductById, addOneProduct };

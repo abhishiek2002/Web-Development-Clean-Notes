@@ -1,10 +1,14 @@
 import express from "express";
 import productsRouter from "./Routers/Products.js";
 import usersRouter from "./Routers/Users.js";
-import cartRouter from "./Routers/Cart.js"
+import cartRouter from "./Routers/Cart.js";
 
 const app = express();
 let port = 4000;
+
+app.use(express.static("public"));
+
+app.use(express.json());
 
 app.use((req, res, next) => {
   const method = req.method;

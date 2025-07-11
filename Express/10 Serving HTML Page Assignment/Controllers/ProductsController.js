@@ -17,7 +17,7 @@ const getProductById = (req, res) => {
 };
 
 const addProduct = (req, res) => {
-  addOneProduct(res);
+  addOneProduct(req, res);
 };
 
 export { getProducts, getProductById, addProduct };
