@@ -2,17 +2,22 @@
 // POST /products returns: "Adding a new product".
 // GET /products/:id returns: "Fetching product with ID: id".
 
+import {
+  getAllProducts,
+  getSingleProductById,
+  addOneProduct,
+} from "../Service/ProductsServices.js";
+
 const getProducts = (req, res) => {
-  res.send("Fetching all products");
+  getAllProducts(res);
 };
 
 const getProductById = (req, res) => {
-  const { id } = req.params;
-  res.send(`Fetching product with ID: ${id}`);
+  getSingleProductById(req.params, res);
 };
 
 const addProduct = (req, res) => {
-  res.send("Adding a new product");
+  addOneProduct(res);
 };
 
 export { getProducts, getProductById, addProduct };
