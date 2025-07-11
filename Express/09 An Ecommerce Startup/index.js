@@ -17,14 +17,14 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Ecommerce Portal API!");
 });
 
-app.use("/products", productsRouter);
-app.use("/users", usersRouter);
-app.use("/cart", cartRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/cart", cartRouter);
 
 app.use((req, res) => {
   res.status(404).send("<h1>404 - Page Not Found</h1>");
 });
 
 app.listen(port, () =>
-  console.log(`Server is running at http://localhost:${port}`)
+  console.log(`Server is running at http://localhost:${port}/api`)
 );

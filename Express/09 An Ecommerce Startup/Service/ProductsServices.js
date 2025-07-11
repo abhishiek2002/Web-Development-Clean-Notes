@@ -8,9 +8,12 @@
 // GET /products → "Fetching all products"
 // GET /products/1 → "Fetching product with ID: 1"
 // POST /products → "Adding a new product"
+import path from "path";
+
+const __dirname = "D:\\Web-Development-Clean-Notes\\Express\\09 An Ecommerce Startup\\Service";
 
 const getAllProducts = (res) => {
-  res.send("Fetching all products");
+  res.sendFile(path.join(__dirname, "..", "View", "product.html"));
 };
 
 const getSingleProductById = (params, res) => {
