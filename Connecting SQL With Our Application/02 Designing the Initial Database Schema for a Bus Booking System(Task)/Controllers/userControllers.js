@@ -1,5 +1,22 @@
 import { connection as db } from "../Utils/ConnectToDatabase.js";
 
+async function getUsersFromTable(req, res) {
+  try {
+    const [rows] = await db.execute("SELECT * FROM Users");
+    res.status(200).json({
+      success: true,
+      data: rows,
+      message: `${rows.length} users found`,
+    });
+  } catch (error) {
+    console.log("Error while fetching users from user table", error);
+    res.status(500).json({
+      success: false,
+      errorMessage: error,
+    });
+  }
+}
+
 async function insertToTable(req, res) {
   const { email, name } = req.body;
 
@@ -61,4 +78,4 @@ async function deleteRowOfTable(req, res) {
   }
 }
 
-export { insertToTable, updateToTable, deleteRowOfTable };
+export {getUsersFromTable, insertToTable, updateToTable, deleteRowOfTable };

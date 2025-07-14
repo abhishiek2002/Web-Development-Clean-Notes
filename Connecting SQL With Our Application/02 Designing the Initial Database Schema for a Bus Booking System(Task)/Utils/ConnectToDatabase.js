@@ -1,11 +1,13 @@
 import mysql from "mysql2";
 
-const connection = await mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Abhishek@2002",
-  database: "testdb",
-});
+const connection = await mysql
+  .createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Abhishek@2002",
+    database: "testdb",
+  })
+  .promise();
 
 connection.connect((err) => {
   if (err) {

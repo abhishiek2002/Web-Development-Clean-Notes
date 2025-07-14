@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { deleteRowOfTable, insertToTable, updateToTable } from "../Controllers/userControllers.js";
+import { deleteRowOfTable, getUsersFromTable, insertToTable, updateToTable } from "../Controllers/userControllers.js";
 
 const router = Router();
+
+router.get('/', getUsersFromTable);
 
 router.post('/add', insertToTable);
 

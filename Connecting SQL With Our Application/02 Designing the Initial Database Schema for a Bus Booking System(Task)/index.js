@@ -2,6 +2,7 @@ import express from "express";
 import intializeDatabase from "./initDB.js";
 import { connection } from "./Utils/ConnectToDatabase.js";
 import userRoutes from "./Routes/usersRoutes.js"
+import busRoutes from "./Routes/busesRoutes.js"
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 await intializeDatabase();
 
 app.use('/users', userRoutes);
+app.use('/buses', busRoutes);
 
 app.listen(3000, () => 
   console.log(
