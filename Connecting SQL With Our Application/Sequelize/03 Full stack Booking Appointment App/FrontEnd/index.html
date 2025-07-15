@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Booking Appointment</h1>
+
+    <form id="userForm">
+      <!-- name -->
+      <label for="name"> Name: </label>
+      <input type="text" id="name" name="name" />
+
+      <!-- email -->
+      <label for="email"> Email: </label>
+      <input type="email" name="email" id="email" />
+
+      <button type="submit">Book Appointment</button>
+    </form>
+
+    <table>
+      <thead id="tableHead">
+        <tr>
+          <!-- <td>Serial</td> -->
+          <td>Name</td>
+          <td>Email</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody id="usersList">
+        <tr>
+          <!-- <td>1</td> -->
+          <!-- <td>Abhishek</td>
+          <td>abhishek@gmail.com</td>
+          <td>
+            <button type="button" class="edit-btn">Edit Expense</button>
+          </td>
+          <td>
+            <button type="button" class="delete-btn">Delete Expense</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
