@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../Utils/db-connection";
+import sequelize from "../Utils/db-connection.js";
 
 const student = sequelize.define("Student", {
   id: {
@@ -13,6 +13,12 @@ const student = sequelize.define("Student", {
   },
   email: {
     type: DataTypes.STRING(100),
+    unique: true
   },
+  age: {
+    type: DataTypes.INTEGER
+  }
 });
 
+
+export default student;
