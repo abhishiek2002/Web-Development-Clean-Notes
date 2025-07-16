@@ -15,7 +15,7 @@ class User {
   async addUser({ name, email }) {
     try {
       const res = await axios.post(this.baseURL + "/add", { name, email });
-      return res.data;
+      return res;
     } catch (error) {
       console.log("Error while adding users", error);
     }

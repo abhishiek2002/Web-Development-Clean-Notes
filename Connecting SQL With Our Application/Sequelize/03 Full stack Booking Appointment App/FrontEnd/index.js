@@ -18,10 +18,10 @@ function display({ id, name, email }) {
           <td>${name}</td>
           <td>${email}</td>
           <td>
-            <button type="button" class="edit-btn">Edit Expense</button>
+            <button type="button" class="edit-btn">Edit</button>
           </td>
           <td>
-            <button type="button" class="delete-btn">Delete Expense</button>
+            <button type="button" class="delete-btn">Remove</button>
           </td>`;
 
   tr.id = id;
@@ -68,22 +68,27 @@ const form = document.querySelector("#userForm");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const name = event.target.name.value;
-  const email = event.target.email.value;
+  let name = event.target.name.value;
+  let email = event.target.email.value;
   const id = JSON.parse(sessionStorage.getItem("editID"));
 
+  if (name === "") name = undefined;
+  if (email === "") email = undefined;
+
   let data;
-  
+
   try {
     if (id) {
-      data = await user.editUser({ name, email, id });
+      const res = await user.editUser({ name, email, id });
+      data = res.data.data;
       sessionStorage.removeItem("editID");
     } else {
-      data = await user.addUser({ name, email });
+      const res = await user.addUser({ name, email });
+      data = res.data.data;
     }
 
     if (data) {
-      display({ name, email, id });
+      display({ id: data.id, name: data.name, email: data.email });
     }
   } catch (error) {
     console.log("Error while adding user", error);
