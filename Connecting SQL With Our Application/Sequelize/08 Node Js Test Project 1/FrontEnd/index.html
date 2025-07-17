@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- main part -->
+    <div class="formDiv">
+      <!-- main heading -->
+      <h1 id="mainHeading">Create a Post</h1>
+
+      <!-- post form -->
+      <form id="addPostForm">
+        <!-- Link field -->
+        <div class="labelDiv">
+          <label for="postLink">Post Link:</label>
+          <input type="text" name="link" id="postLink" />
+        </div>
+
+        <!-- description field -->
+        <div class="labelDiv">
+          <label for="postDescription">Post Description:</label>
+          <textarea
+            type="text"
+            name="description"
+            id="postDescription"
+          ></textarea>
+        </div>
+
+        <button type="submit">ADD POST</button>
+      </form>
+    </div>
+
+    <!-- posts container -->
+    <div id="postsContainer">
+      <!-- Posts Heading -->
+
+      <h1>Posts</h1>
+
+      <!-- posts -->
+
+      <div id="posts">
+
+        <!-- Post 1 -->
+        
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
+
+
+
