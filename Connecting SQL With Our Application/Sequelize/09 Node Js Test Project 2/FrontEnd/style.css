@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: auto;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 5px;
+  gap: 10px;
+}
+
+#tableWindow {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  box-shadow: 1px 1px 15px rgb(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  position: relative;
+}
+
+hr {
+  width: 90%;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+}
+
+.tableBtn {
+  /* margin: top right bottom left; */
+  background-color: orange;
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  height: max-content;
+  width: max-content;
+  padding: 3px 5px;
+  background-color: rgb(122, 255, 122);
+  border: none;
+  border-radius: 5px;
+  outline: 1px solid;
+
+}
+
+button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+.tableName {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.dataWindow {
+  display: grid;
+  grid-template-rows: 100px auto;
+  padding: 5px;
+}
+
+.insertBtn {
+  justify-self: flex-end;
+}
+
+table {
+  height: max-content;
+}
+
+thead {
+  font-weight: bold;
+  background-color: blanchedalmond;
+  height: 30px;
+}
+
+td {
+  margin: 5px;
+  width: max-content;
+  max-width: 200px;
+  /* min-width: 50px; */
+}
+
+/* create Table Window */
+
+#createTable {
+  display: none;
+  position: absolute;
+  width: 600px;
+  outline: 1px solid;
+  min-height: 250px;
+  top: 10vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  background: rgb(238, 238, 238);
+  padding: 5px;
+  padding-bottom: 35px;
+}
+
+#createTable.visible{
+  display: block;
+}
+
+.removeWindowBtn {
+  background: transparent;
+  color: rgb(255, 0, 0);
+  font-size: large;
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+}
+
+.removeRowBtn{
+
+}
+
+#createTable span {
+  display: block;
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+input {
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  width: 170px;
+  padding: 5px;
+}
+
+input:focus {
+  border: 1px solid burlywood;
+}
+
+
+select {
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  width: 170px;
+}
+
+#createTableForm{
+  outline: 1px solid black;
+}
+
+#fieldsContainerLabel{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.fieldRow{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  width: 100%;
+  margin: 5px 0px;
+  gap: 10px;
+  padding: 5px 0;
+}
+
+#createTable form p {
+  color: rgb(31, 31, 152);
+  cursor: pointer;
+}
+
+#createTableFormSubmitBtn {
+  position: absolute;
+  bottom: 1%;
+  background-color: orange;
+}
+
+/* insert Record window */
+
+#insertRecord {
+  display: none;
+  position: absolute;
+  width: 600px;
+  outline: 1px solid;
+  min-height: 250px;
+  top: 10vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  background: rgb(238, 238, 238);
+  padding: 5px;
+}
+
+#insertRecord.visible{
+  display: block;
+}
+
+.recordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0 auto;
+  width: max-content;
+  padding: 10px;
+  /* outline: 1px solid; */
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.recordForm .insertBtn{
+  /* margin: top right bottom left; */
+  /* margin: auto auto 2px auto;  */
+    position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+

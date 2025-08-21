@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database Handle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <!-- tables window -->
+      <div id="tableWindow">
+        <!-- <h3 class="tableName" id="users">Users</h3>
+        <hr />
+        <h3 class="tableName" id="expenses">Expenses</h3>
+        <hr /> -->
+
+        <button type="button" class="tableBtn">+ Create new table</button>
+      </div>
+
+      <!-- table data window -->
+
+      <div class="dataWindow">
+        <button type="button" class="insertBtn" id="insertBtnId">
+          Insert Record
+        </button>
+        <table>
+          <thead>
+            <tr class="tableHead" id="columnNames">
+              <!-- <td>Name</td>
+              <td>Email</td>
+              <td>CreatedAt</td>
+              <td>Updatedt</td>
+              <td></td> -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            <!-- <tr>
+              <td>Abhishek</td>
+              <td>abhishek@gmail.com</td>
+              <td>2025-07-18 20:42:17</td>
+              <td>2025-07-18 20:42:17</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- create Table Window -->
+
+    <div id="createTable" class="">
+      <button type="button" class="removeWindowBtn">X</button>
+      <h3>Create Table</h3>
+      <form id="databaseTableCreationForm">
+        <span>Table Name</span>
+        <input type="text" name="name" id="name" placeholder="table name here" />
+
+        <div id="createTableForm">
+          <div id="fieldsContainerLabel">
+            <span> Field name </span>
+            <span>Type</span>
+          </div>
+          <div id="fieldsContainer">
+            <!-- Field rows will be added here -->
+            <!-- <div class="fieldRow">
+              <input type="text" name="fieldName[]"/>
+              <select name="fieldType[]">
+                <option value="STRING">STRING</option>
+                <option value="NUMBER">NUMBER</option>
+                <option value="BOOLEAN">BOOLEAN</option>
+                <option value="JSON">JSON</option>
+                <option value="DOUBLE">DOUBLE</option>
+              </select>
+              <button type="button" class="removeRowBtn">Remove</button>
+            </div> -->
+          </div>
+
+          <p id="addFieldBtn">+ Add Field</p>
+          <button type="submit" id="createTableFormSubmitBtn">Create Table</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- insert record window -->
+
+    <div id="insertRecord" class="">
+      <button type="button" class="removeWindowBtn">X</button>
+
+      <h3>Add Record</h3>
+
+      <form class="recordForm">
+        <input type="text" name="" id="" placeholder="name" />
+        <input type="text" name="" id="" placeholder="email" />
+        <input type="number" name="" id="" placeholder="number" />
+
+        <button type="button" class="insertBtn">Insert Record</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
