@@ -17,6 +17,7 @@ When you create an RDS database in AWS, you need to decide a few things:
     - And what security group rules allow who can connect.
 
 👉 Quick question for you: if your EC2 instance is supposed to talk to the RDS, what’s one network setting that must match between them? (Hint: it’s about where they “live” in AWS).
+Answer: VPC must have been same
 
 ## Step 2: RDS Instance States
 
@@ -128,6 +129,9 @@ ssh -i my-key.pem ubuntu@<EC2-Public-IP>
 ---
 
 ## 4. Install MySQL Client on EC2
+
+So that we can query the RDS database directly from EC2 instance (using CLI commands)
+
 ```bash
 sudo apt update
 sudo apt install mysql-client -y
@@ -136,6 +140,9 @@ sudo apt install mysql-client -y
 ---
 
 ## 5. Connect EC2 to RDS
+
+After installing MySQL Client on EC2 now it's time to connect to database
+
 Get the **RDS endpoint** from RDS console.
 
 ```bash
@@ -148,6 +155,15 @@ Enter your password when prompted.
 ---
 
 ## 6. Test Database Connection
+
+Now after installing MySQL Client and connection establishedment, finally we can run any query directly from EC2 instance inside MySQL shell.
+
+To exit from shell , run:
+
+```bash
+exit
+```
+
 Inside MySQL shell:
 ```sql
 SHOW DATABASES;
