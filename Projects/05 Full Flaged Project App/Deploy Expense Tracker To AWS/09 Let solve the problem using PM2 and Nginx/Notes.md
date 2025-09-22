@@ -21,21 +21,21 @@ These notes are designed to be comprehensive for exam preparation, practical dep
 
 ### What is PM2?
 
-* **PM2 (Process Manager 2)** is a production process manager for Node.js applications.
-* It allows applications to run continuously without manual restarts.
-* Supports:
+- **PM2 (Process Manager 2)** is a production process manager for Node.js applications.
+- It allows applications to run continuously without manual restarts.
+- Supports:
 
-  * **Automatic restarts** on crashes.
-  * **Load balancing** (clustering).
-  * **Log management**.
-  * **Startup scripts** for system reboots.
+  - **Automatic restarts** on crashes.
+  - **Load balancing** (clustering).
+  - **Log management**.
+  - **Startup scripts** for system reboots.
 
 ### Why use PM2?
 
-* Keeps Node.js apps alive forever.
-* Simplifies process management.
-* Provides monitoring tools.
-* Ideal for running multiple applications on one server.
+- Keeps Node.js apps alive forever.
+- Simplifies process management.
+- Provides monitoring tools.
+- Ideal for running multiple applications on one server.
 
 ---
 
@@ -96,7 +96,7 @@ pm2 start app.js --name myapp
 pm2 start app.js --name myapp --watch
 ```
 
-* `--watch`: restarts app when file changes detected.
+- `--watch`: restarts app when file changes detected.
 
 ### View Running Applications
 
@@ -148,17 +148,17 @@ Follow the instructions given in the output to enable auto-start.
 
 # Section 4: PM2 Commands Summary
 
-| Command                         | Description         |
-| ------------------------------- | ------------------- |
-| `pm2 start app.js`              | Start app           |
-| `pm2 start app.js --name myapp` | Start with name     |
-| `pm2 list`                      | List running apps   |
-| `pm2 stop myapp`                | Stop app            |
-| `pm2 restart myapp`             | Restart app         |
-| `pm2 delete myapp`              | Remove app from PM2 |
-| `pm2 logs`                      | Show logs           |
-| `pm2 save`                      | Save processes      |
-| `pm2 startup systemd`           | Configure startup   |
+| Command                              | Description         |
+| ------------------------------------ | ------------------- |
+| `pm2 start app.js`                   | Start app           |
+| `pm2 start app.js --name myapp`      | Start with name     |
+| `pm2 list`                           | List running apps   |
+| `pm2 stop <app_name> or <id> or all` | Stop app            |
+| `pm2 restart myapp`                  | Restart app         |
+| `pm2 delete myapp`                   | Remove app from PM2 |
+| `pm2 logs`                           | Show logs           |
+| `pm2 save`                           | Save processes      |
+| `pm2 startup systemd`                | Configure startup   |
 
 ---
 
@@ -166,23 +166,23 @@ Follow the instructions given in the output to enable auto-start.
 
 ### What is Nginx?
 
-* **Nginx** is a high-performance web server and reverse proxy.
-* It can:
+- **Nginx** is a high-performance web server and reverse proxy.
+- It can:
 
-  * Serve static files.
-  * Act as a **reverse proxy** for Node.js applications.
-  * Handle **load balancing**.
-  * Terminate **SSL/TLS connections**.
+  - Serve static files.
+  - Act as a **reverse proxy** for Node.js applications.
+  - Handle **load balancing**.
+  - Terminate **SSL/TLS connections**.
 
 ### Why Use Nginx with Node.js?
 
-* Node.js is not optimized to serve HTTP traffic directly at scale.
-* Nginx:
+- Node.js is not optimized to serve HTTP traffic directly at scale.
+- Nginx:
 
-  * Manages connections efficiently.
-  * Provides **security** (e.g., hides Node.js server details).
-  * Enables **domain-based routing**.
-  * Supports **HTTPS (SSL certificates)**.
+  - Manages connections efficiently.
+  - Provides **security** (e.g., hides Node.js server details).
+  - Enables **domain-based routing**.
+  - Supports **HTTPS (SSL certificates)**.
 
 ---
 
@@ -231,17 +231,21 @@ sudo nano /etc/nginx/sites-available/myapp
 
 ```nginx
 server {
-    listen 80;
-    server_name your_domain.com;
+listen         80;
 
-    location / {
-        proxy_pass http://127.0.0.1:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
+server_name 		domain_name.com # Skip this line if you don't have it
+
+location / {
+     proxy_pass               http://localhost:3000;
+     proxy_http_version       1.1;
+     proxy_set_header         Upgrade $http_upgrade;
+     proxy_set_header         Connection 'upgrade';
+     proxy_set_header         Host $host;
+     proxy_cache_bypass       $http_upgrade;
+     proxy_set_header         X-Real-IP $remote_addr;
+     proxy_set_header         X-Forwarded-For $proxy_add_x_forwarded_for;
+     proxy_set_header         X-Forwarded-Proto $scheme;
+  }
 }
 ```
 
@@ -267,24 +271,79 @@ sudo systemctl restart nginx
 
 # Section 8: Security Group Configuration (EC2)
 
-* Open **AWS Management Console → EC2 → Security Groups**.
-* Remove inbound rules for Node.js application port (e.g., **3000**).
-* Keep **port 80 (HTTP)** and **port 443 (HTTPS)** open.
-* Now traffic flows: **Client → Nginx (80/443) → Node.js app (3000)**.
+- Open **AWS Management Console → EC2 → Security Groups**.
+- Remove inbound rules for Node.js application port (e.g., **3000**).
+- Keep **port 80 (HTTP)** and **port 443 (HTTPS)** open.
+- Now traffic flows: **Client → Nginx (80/443) → Node.js app (3000)**.
 
 ---
 
 # Section 9: Nginx Commands Summary
 
-| Command                        | Description                    |
-| ------------------------------ | ------------------------------ |
-| `sudo systemctl start nginx`   | Start Nginx                    |
-| `sudo systemctl stop nginx`    | Stop Nginx                     |
-| `sudo systemctl restart nginx` | Restart Nginx                  |
-| `sudo systemctl reload nginx`  | Reload config without downtime |
-| `sudo systemctl enable nginx`  | Enable on boot                 |
-| `sudo systemctl status nginx`  | Check status                   |
-| `sudo nginx -t`                | Test config file syntax        |
+| Command                        | Description                                                                                                                                           |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sudo systemctl start nginx`   | Start Nginx                                                                                                                                           |
+| `sudo systemctl stop nginx`    | Stop Nginx                                                                                                                                            |
+| `sudo systemctl restart nginx` | Restart Nginx: This command stops and then starts Nginx again.                                                                                        |
+| `sudo systemctl reload nginx`  | Reload Nginx Configuration: If you have made changes to the Nginx configuration files, you can reload the configuration without stopping the service. |
+| `sudo systemctl enable nginx`  | Enable Nginx to Start on Boot: To ensure Nginx starts automatically when the server boots up.                                                         |
+| `sudo systemctl disable nginx` | Disable Nginx from Starting on Boot: If you don't want Nginx to start automatically.                                                                  |
+| `sudo systemctl status nginx`  | Check Nginx Status: This command shows the current status of Nginx.                                                                                   |
+| `sudo nginx -t`                | Test Nginx Configuration: Before reloading or restarting Nginx after changes, you can test the configuration for any syntax errors.                   |
+
+## View Nginx Logs: Nginx logs can be found in the following directories:
+
+**Access logs**:
+`sudo tail -f /var/log/nginx/access.log`
+
+**Error logs**:
+`sudo tail -f /var/log/nginx/error.log`
+
+
+NOTE:
+
+```
+# default port for nginx
+server {
+
+listen         80;
+
+# Default server block to handle all requests when no other server_name matches
+server_name your_domain_name.com
+
+# Here "/" means it will handle all requests
+location / {
+
+# Forward requests to the server running on localhost port 3000
+proxy_pass http://localhost:3000;
+
+# Use HTTP/1.1 for proxying (necessary for WebSockets)
+proxy_http_version 1.1;
+
+# Set the Upgrade header to the value of $http_upgrade (used for WebSocket connections)
+proxy_set_header  Upgrade $http_upgrade;
+
+# Set the Connection header to 'upgrade' to indicate a connection upgrade (WebSockets)
+proxy_set_header  Connection 'upgrade';
+
+# Set the Host header to the value of the original request's Host header
+proxy_set_header  Host $host;
+
+# Bypass the cache when $http_upgrade is set (important for WebSockets)
+proxy_cache_bypass  $http_upgrade;
+
+# Forward the client's real IP address to the backend server
+proxy_set_header  X-Real-IP $remote_addr;
+
+# Add the client's IP address to the X-Forwarded-For header
+proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+
+# Forward the original request scheme (http or https) to the backend server
+proxy_set_header  X-Forwarded-Proto $scheme;
+
+  }
+}
+```
 
 ---
 
@@ -325,12 +384,12 @@ cat /var/log/nginx/access.log
 
 # Section 12: Best Practices
 
-* Always use **PM2** for process management.
-* Use **Nginx** for routing, SSL, and load balancing.
-* Secure server with **UFW (firewall)**.
-* Monitor apps with `pm2 monit`.
-* Use **SSL certificates (Let’s Encrypt)** for HTTPS.
-* Keep system updated.
+- Always use **PM2** for process management.
+- Use **Nginx** for routing, SSL, and load balancing.
+- Secure server with **UFW (firewall)**.
+- Monitor apps with `pm2 monit`.
+- Use **SSL certificates (Let’s Encrypt)** for HTTPS.
+- Keep system updated.
 
 ---
 
@@ -389,18 +448,18 @@ Now `http://example.com` → routes to Node.js app.
 
 # Section 14: Recap
 
-* **PM2** ensures Node.js app stays alive and auto-starts.
-* **Nginx** acts as a reverse proxy, improving security and scalability.
-* Together, they create a production-ready deployment setup.
+- **PM2** ensures Node.js app stays alive and auto-starts.
+- **Nginx** acts as a reverse proxy, improving security and scalability.
+- Together, they create a production-ready deployment setup.
 
 ---
 
 # Section 15: Next Steps
 
-* Add **SSL Certificates** with **Certbot**.
-* Configure **domain names** in DNS.
-* Use **PM2 ecosystem files** for advanced config.
-* Set up **load balancing** with Nginx.
+- Add **SSL Certificates** with **Certbot**.
+- Configure **domain names** in DNS.
+- Use **PM2 ecosystem files** for advanced config.
+- Set up **load balancing** with Nginx.
 
 ---
 
